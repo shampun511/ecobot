@@ -1,0 +1,52 @@
+import discord, random, typing, discord, os, time
+from discord.ext import commands
+
+intents = discord.Intents.default()
+intents.message_content = True
+
+bot = commands.Bot(command_prefix='$', intents=intents)
+
+info_bot = [
+    "1. advice - выводит совет", 
+    "2. img_eco - выводит совет-картинку", 
+]
+
+advice_info = [
+    "Не кидать бычки на землю",
+    "Выкидывать мусор ТОЛЬКО В УРНЫ ПОН ДА",
+    "Больше ездить на велосипеде и ходить пешком, машины зло(даже жигули)",
+    "Поделись своими экологическими знаниями и вдохнови своих друзей на экологичные изменения",
+    "Покупай б/у товары – это способ уменьшить потребление новых ресурсов",
+    "Путешествуй с reusable набором столовых приборов, чтобы не использовать одноразовые пластиковые вилки и ложки.",
+]
+
+img_info = [
+    "https://cdn.fishki.net/upload/post/201406/09/1276060/4_07.jpg",
+    "https://tiroz.org/wp-content/uploads/2018/04/9-768x768.png",
+    "http://leskom.nov.ru/images/uploads/priroda/GOKY/Ch1.png",
+    "https://duma.mos.ru/uploads/shared_docs/gruppa_redaktorov_press-tsentr/Презентации/2018/2001_eco/200218_ecolife.jpg",
+    "https://econet.ru/media/60/covers/696/original.jpg?1433350302",
+    "https://pro-babochek.ru/wp-content/uploads/2023/07/opasnie-paraziti-babochek-kak-spasti-vid-i-soxranit-wfptiu7e.jpg",
+    "https://tiroz.org/wp-content/uploads/2018/04/122F102F17-LIVING-ASIA.png",
+    "https://sun9-67.userapi.com/impg/sr3sIzq08IO37zqPvwMmGktJItUCqHvQyrOqYg/ygTDFfQqPk4.jpg?size=604x604&quality=96&sign=f74ead93846e0cda7a6f6341cf574955&type=album",
+    "http://oukors.kolos.obr55.ru/files/2022/06/3_ekologicheskaya_pamyatka.jpg",
+]
+
+@bot.command()
+async def bot_info(ctx):
+    await ctx.send("Список ваших команд (перед началом ставьте знак $):")
+    time.sleep(0.1)
+    for i in info_bot:
+        await ctx.send(i)
+        time.sleep(0.1)
+
+@bot.command()
+async def advice(ctx):
+    await ctx.send (f'{random.choice(advice_info)}')
+
+@bot.command()
+async def img_eco(ctx):
+    await ctx.send (f'{random.choice(img_info)}')
+
+
+bot.run("token")
