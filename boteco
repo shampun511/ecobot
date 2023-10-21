@@ -48,5 +48,8 @@ async def advice(ctx):
 async def img_eco(ctx):
     await ctx.send (f'{random.choice(img_info)}')
 
+@bot_command()
+async def eco_website(ctx):
+    await ctx.sen (f"{random.choice(website_eco)}")
 
 bot.run("token")
